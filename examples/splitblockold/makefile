@@ -25,7 +25,7 @@ EXAMPLESPDF = $(EXAMPLES:%.md=%.pdf)
 EXAMPLESTEX = $(EXAMPLES:%.md=%.tex)
 EXAMPLESHTML = $(EXAMPLES:%.md=%.html)
 
-TEXFILES = moreblocks.tex
+TEXFILES = fourquad.tex
 
 # --------------------------------------------------------------------------------------
 # 
@@ -52,12 +52,9 @@ clean:
 	-rm -rf *.synctex.gz *.aux *.log *.out 
 	-rm -rf $(EXAMPLESPDF) $(EXAMPLESTEX) $(EXAMPLESHTML)
 
-moreblocks.tex: 
-	$(COPY) ../../moreblocks.tex .
+fourquad..tex: 
+	$(COPY) ../../fourquad.tex .
 
-
-persons.tex: 
-	$(COPY) ../../persons.tex .
 
 
 # --------------------------------------------------------------------------------------
