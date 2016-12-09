@@ -19,7 +19,7 @@ Release 1.0.0 nm (08.12.2016) New code! Now Pyhton3 and panflute as grid.
 
 Please try PEP8 ! ;-)
 
-> pep8 --show-source --first moreblocks-2.py
+> pep8 --show-source --first splitblockold.py
 
 Problems?
     - maybe you should use "#!/usr/bin/env python" as first line? ;-)pandoc
@@ -31,14 +31,18 @@ from panflute import (Header, Plain, RawInline, RawBlock,
 
 def prepare(doc):
     debug('Starting "splitblockold.py" ...')
-    
+
 
 def doColumnsBegin(size):
-    return RawBlock('\\begin{columns}[T]\n\t\\begin{column}[t]{'+size+'\\textwidth}',format='latex')
+    ret = ('\\begin{columns}[T]\n'
+           '\t\\begin{column}[t]{'+size+'\\textwidth}')
+    return RawBlock(ret, format='latex')
 
 
 def doColumnsSeperator(size):
-    return RawBlock('\t\\end{column}\n\t\\begin{column}[t]{'+size+'\\textwidth}', format='latex')
+    ret = ('\t\\end{column}\n'
+           '\t\\begin{column}[t]{'+size+'\\textwidth}')
+    return RawBlock(ret, format='latex')
 
 
 def doColumnsEnd():
@@ -57,21 +61,21 @@ def splitblockold(e, doc):
             # debug(e)
             if e.level == 3 or e.level == 5:
                 if "twocolumnsbegin" in e.classes:
-                    return doColumnsBegin('0.485');
+                    return doColumnsBegin('0.485')
                 elif "twocolumnsep" in e.classes:
-                    return doColumnsSeperator('0.485');
+                    return doColumnsSeperator('0.485')
                 elif "twocolumnsend" in e.classes:
                     return doColumnsEnd()
                 elif "threecolumnsbegin" in e.classes:
-                    return doColumnsBegin('0.33');
+                    return doColumnsBegin('0.33')
                 elif "threecolumnsep" in e.classes:
-                    return doColumnsSeperator('0.33');
+                    return doColumnsSeperator('0.33')
                 elif "threecolumnsend" in e.classes:
                     return doColumnsEnd()
                 elif "twocolumnsbigleftbegin" in e.classes:
-                    return doColumnsBegin('0.66');
+                    return doColumnsBegin('0.66')
                 elif "twocolumnsbigleftsep" in e.classes:
-                    return doColumnsSeperator('0.33');
+                    return doColumnsSeperator('0.33')
                 elif "twocolumnsbigleftend" in e.classes:
                     return doColumnsEnd()
                 elif "fourquadone" in e.classes:
