@@ -12,6 +12,7 @@ MAKEFILEVERSION=1.0
 
 EXAMPLEDIRS = addpersons
 EXAMPLEDIRS += moreblocks
+EXAMPLEDIRS += splitbockold
 
 # --------------------------------------------------------------------------------------
 #
