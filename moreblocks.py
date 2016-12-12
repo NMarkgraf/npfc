@@ -19,7 +19,7 @@ Release 1.0.0 nm (08.12.2016) New code! Now Pyhton3 and panflute as grid.
 
 Please try PEP8 ! ;-)
 
-> pep8 --show-source --first moreblocks-2.py
+> pep8 --show-source --first moreblocks.py
 
 Problems?
     - maybe you should use "#!/usr/bin/env python" as first line? ;-)pandoc
@@ -44,7 +44,22 @@ blockmap = {
 }
 
 """
+We have to escape (german) umlaute in labels as long as we use
+pdflatex and not lualatex or XeTeX!
+
+For this we use this *trans*lation*tab*le!
 """
+transtab = {
+    ord('ä'): 'ae',
+    ord('ö'): 'oe',
+    ord('ü'): 'ue',
+    ord('ß'): 'ss',
+    ord('Ä'): 'Ae',
+    ord('Ö'): 'oe',
+    ord('Ü'): 'Ue',
+}
+
+
 def prepare(doc):
     debug('Starting "moreblocks.py" ...')
     for key in blockmap:
@@ -64,6 +79,10 @@ def endTag(tag):
     return '\\end{'+tag+'}\n'
 
 
+def removeUmlaute(str):
+    return str.translate(transtab)
+
+
 def moreblocks(e, doc):
     # print(doc.format)
     if doc.format == "latex" or doc.format == "beamer":
@@ -72,7 +91,10 @@ def moreblocks(e, doc):
             # debug(e)
             if e.level == 4:
                 tag = ""
-                label = '\\label{' + e.identifier + '}' if e.identifier else ''
+                if e.identifier:
+                    label = '\\label{' + removeUmlaute(e.identifier) + '}'
+                else:
+                    label = ''
                 tag = ''
                 for key in blockmap:
                     if key in e.classes:
@@ -89,13 +111,19 @@ def moreblocks(e, doc):
                 n = Plain()
                 n.content = [left] + list(e.content) + [right]
                 i = 1
+                length = len(doc.content)
                 # debug(doc.content[e.index+i])
                 while not(isinstance(doc.content[e.index+i], Header)):
                     i += 1
-                    # debug(doc.content[e.index+i])
+                    if (e.index+i) >= length:
+                        break
 
-                doc.content.insert(e.index+i,
-                                   RawBlock(endTag(tag), format='latex'))
+                ret = RawBlock(endTag(tag), format='latex')
+                if (e.index+i) >= length:
+                        # We need to add it at the end of the list!
+                        doc.content.append(ret)
+                else:
+                    doc.content.insert(e.index+i, ret)
                 return n
 
             else:

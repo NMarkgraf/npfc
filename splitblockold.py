@@ -34,7 +34,8 @@ def prepare(doc):
 
 
 def doColumnsBegin(size):
-    ret = ('\\begin{columns}[T]\n'
+    ret = ('\\vspace*{-1em}'
+           '\\begin{columns}[T]\n'
            '\t\\begin{column}[t]{'+size+'\\textwidth}')
     return RawBlock(ret, format='latex')
 
