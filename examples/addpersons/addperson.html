@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <meta name="author" content="Norman Markgraf" />
+  <title>Pandoc some block examples</title>
+  <style type="text/css">code{white-space: pre;}</style>
+</head>
+<body>
+<div id="header">
+<h1 class="title">Pandoc some block examples</h1>
+<h2 class="author">Norman Markgraf</h2>
+</div>
+<h1 id="pandoc-persons-example">pandoc persons example</h1>
+<h2 id="just-put-in-some-pictures-of-great-scientist">Just put in some pictures of great scientist</h2>
+<h3 id="section" class="personbegin" person="Vieta"></h3>
+<h4 id="of-vieta" class="theorem">of Vieta</h4>
+<p>If <span class="math inline"><em>x</em><sub>0</sub></span> and <span class="math inline"><em>x</em><sub>1</sub></span> are the roots of <span class="math inline"><em>x</em><sup>2</sup> + <em>p</em><em>x</em> + <em>q</em> = 0</span>, than <span class="math inline"><em>p</em> = −(<em>x</em><sub>0</sub> + <em>x</em><sub>1</sub>)</span> and <span class="math inline"><em>q</em> = <em>x</em><sub>0</sub> ⋅ <em>x</em><sub>1</sub></span>.</p>
+<h4 id="section-1" class="proof"></h4>
+<p><span class="math inline">(<em>x</em> − <em>x</em><sub>0</sub>)⋅(<em>x</em> − <em>x</em><sub>1</sub>)=<em>x</em><sup>2</sup> − (<em>x</em><sub>0</sub> + <em>x</em><sub>1</sub>)⋅<em>x</em> + <em>x</em><sub>0</sub> ⋅ <em>x</em><sub>1</sub></span></p>
+<h3 id="section-2" class="personend"></h3>
+<p>Wow!</p>
+<h2 id="the-end">The End!</h2>
+<p>Well, much to do!</p>
+<p>To process this try:</p>
+<pre><code>pandoc --from=markdown --to=json addpersons.md  | \
+./moreblocks.py beamer | ./addperson.py beamer | \
+pandoc --from=json --to=beamer -s -o addpersons.pdf</code></pre>
+<p>or</p>
+<pre><code>pandoc --from=markdown --to=beamer \
+--filter=moreblocks.py --filter=addperson.py \ 
+addpersons.md -o addpersons.pdf</code></pre>
+</body>
+</html>

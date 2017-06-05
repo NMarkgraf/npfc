@@ -49,10 +49,10 @@ TEXFILES = fourquad.tex
 .PHONY: clean propper version info moreblocks.tex persons.tex 
 
 clean:
-	-rm -rf *.synctex.gz *.aux *.log *.out 
+	-rm -rf *.synctex.gz *.aux *.log *.out *.vrb *.toc *.nav *.snm 
 	-rm -rf $(EXAMPLESPDF) $(EXAMPLESTEX) $(EXAMPLESHTML)
 
-fourquad..tex: 
+fourquad.tex: 
 	$(COPY) ../../fourquad.tex .
 
 
@@ -62,6 +62,7 @@ fourquad..tex:
 #
 propper: clean
 	-rm -rf $(TEXFILES)
+	echo "Now we are more than clean!"
 
 
 # --------------------------------------------------------------------------------------
@@ -79,8 +80,8 @@ all: $(TEXFILES) $(EXAMPLESPDF) $(EXAMPLESTEX) $(EXAMPLESHTML)
 info: 
 	@echo "########################################################################"
 	@echo ""
-	@echo "Makefile (C) in 2015,16 by Norman Markgraf"
-	@echo "========-------------------------------"
+	@echo "Makefile (C) in 2015-17 by Norman Markgraf"
+	@echo "========----------------------------------"
 	@echo "Version: $(MAKEFILEVERSION)"
 	@echo ""
 	@echo "************************************************************************"

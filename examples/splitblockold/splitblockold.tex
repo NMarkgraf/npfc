@@ -1,0 +1,218 @@
+\documentclass[10pt,english,ignorenonframetext,]{beamer}
+\setbeamertemplate{caption}[numbered]
+\setbeamertemplate{caption label separator}{: }
+\setbeamercolor{caption name}{fg=normal text.fg}
+\beamertemplatenavigationsymbolsempty
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+\else % if luatex or xelatex
+  \ifxetex
+    \usepackage{mathspec}
+  \else
+    \usepackage{fontspec}
+  \fi
+  \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
+\fi
+\usetheme[]{Boadilla}
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+% use microtype if available
+\IfFileExists{microtype.sty}{%
+\usepackage{microtype}
+\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[shorthands=off,main=english]{babel}
+\else
+  \usepackage{polyglossia}
+  \setmainlanguage[]{english}
+\fi
+\newif\ifbibliography
+\hypersetup{
+            pdftitle={Pandoc some block examples},
+            pdfauthor={Norman Markgraf},
+            pdfborder={0 0 0},
+            breaklinks=true}
+
+% Prevent slide breaks in the middle of a paragraph:
+\widowpenalties 1 10000
+\raggedbottom
+
+\AtBeginPart{
+  \let\insertpartnumber\relax
+  \let\partname\relax
+  \frame{\partpage}
+}
+\AtBeginSection{
+  \ifbibliography
+  \else
+    \let\insertsectionnumber\relax
+    \let\sectionname\relax
+    \frame{\sectionpage}
+  \fi
+}
+\AtBeginSubsection{
+  \let\insertsubsectionnumber\relax
+  \let\subsectionname\relax
+  \frame{\subsectionpage}
+}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{0}
+\input{fourquad.tex}
+
+\title{Pandoc some block examples}
+\author{Norman Markgraf}
+\date{}
+
+\begin{document}
+\frame{\titlepage}
+
+\section{pandoc splitblockold
+example}\label{pandoc-splitblockold-example}
+
+\begin{frame}{Customizing layout: two columns}
+
+\vspace*{-1em}\begin{columns}[T]
+	\begin{column}[t]{0.485\textwidth}
+
+\textbf{This is an \emph{old method} to split up the page into two
+sections.}
+
+Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
+eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
+voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet
+clita kasd gubergren.
+
+Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse
+molestie consequat.
+
+	\end{column}
+	\begin{column}[t]{0.485\textwidth}
+
+\textbf{It is just for older documents!}
+
+Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
+eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
+voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet
+clita kasd gubergren.
+
+Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse
+molestie consequat.
+
+	\end{column}
+\end{columns}
+
+\end{frame}
+
+\begin{frame}{Customizing layout: three columns}
+
+\vspace*{-1em}\begin{columns}[T]
+	\begin{column}[t]{0.33\textwidth}
+
+Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
+eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
+voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet
+clita kasd gubergren.
+
+Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse
+molestie consequat.
+
+	\end{column}
+	\begin{column}[t]{0.33\textwidth}
+
+Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper
+suscipit lobortis nisl ut aliquip ex ea commodo consequat.
+
+	\end{column}
+	\begin{column}[t]{0.33\textwidth}
+
+Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse
+molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero
+eros et accumsan et iusto odio dignissim qui blandit praesent luptatum
+zzril delenit augue duis dolore te feugait nulla facilisi.
+
+	\end{column}
+\end{columns}
+
+\end{frame}
+
+\begin{frame}{Customizing layout: two columns, one big left}
+
+\vspace*{-1em}\begin{columns}[T]
+	\begin{column}[t]{0.66\textwidth}
+
+Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
+eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
+voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet
+clita kasd gubergren.
+
+Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse
+molestie consequat.
+
+Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper
+suscipit lobortis nisl ut aliquip ex ea commodo consequat.
+
+	\end{column}
+	\begin{column}[t]{0.33\textwidth}
+
+Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse
+molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero
+eros et accumsan et iusto odio dignissim qui blandit praesent luptatum
+zzril delenit augue duis dolore te feugait nulla facilisi.
+
+	\end{column}
+\end{columns}
+
+\end{frame}
+
+\begin{frame}{Customizing layout: four boxes}
+
+\FourQuad{%
+
+ONE is upper left!
+
+
+}{%
+
+TWO is upper right!
+
+
+}{%
+
+THREE is lower left!
+
+
+}{%
+
+FOUR is lower right!
+
+
+}% END QuadFour
+
+\end{frame}
+
+\begin{frame}[fragile]{The End!}
+
+Well, much to do!
+
+To process this try:
+
+\begin{verbatim}
+pandoc --from=markdown --to=json splitblockold.md  | \
+./splitblockold.py beamer | \
+pandoc --from=json --to=beamer -s -o splitblockold.pdf
+\end{verbatim}
+
+\end{frame}
+
+\end{document}

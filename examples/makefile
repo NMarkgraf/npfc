@@ -12,7 +12,8 @@ MAKEFILEVERSION=1.0
 
 EXAMPLEDIRS = addpersons
 EXAMPLEDIRS += moreblocks
-EXAMPLEDIRS += splitbockold
+EXAMPLEDIRS += sections
+EXAMPLEDIRS += splitblockold
 
 # --------------------------------------------------------------------------------------
 #
@@ -45,8 +46,8 @@ clean:
 info: 
 	@echo "########################################################################"
 	@echo ""
-	@echo "Makefile (C) in 2015,16 by Norman Markgraf"
-	@echo "========-------------------------------"
+	@echo "Makefile (C) in 2015-17 by Norman Markgraf"
+	@echo "========----------------------------------"
 	@echo "Version: $(MAKEFILEVERSION)"
 	@echo ""
 	@echo "************************************************************************"

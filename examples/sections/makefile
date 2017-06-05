@@ -1,5 +1,5 @@
 # ######################################################################################
-# Makefile (C) in 2016 by Norman Markgraf
+# Makefile (C) in 2016-2017 by Norman Markgraf
 # ========
 # Version 1.0 	nm (09. Dec. 2016) 	First Release
 MAKEFILEVERSION=1.0
@@ -15,17 +15,17 @@ PANDOC = pandoc
 COPY = cp 
 
 FILTERDIR = ../../
-FILTER = --filter $(FILTERDIR)./moreblocks.py --filter $(FILTERDIR)./addperson.py 
+FILTER = --filter $(FILTERDIR)./moreblocks.py --filter $(FILTERDIR)./sections.py 
 
 PANDOCOPT = --standalone
 
-EXAMPLES = addperson.md
+EXAMPLES = sections.md
 
 EXAMPLESPDF = $(EXAMPLES:%.md=%.pdf)
 EXAMPLESTEX = $(EXAMPLES:%.md=%.tex)
 EXAMPLESHTML = $(EXAMPLES:%.md=%.html)
 
-TEXFILES = moreblocks.tex persons.tex
+TEXFILES = moreblocks.tex
 
 # --------------------------------------------------------------------------------------
 # 
@@ -49,15 +49,12 @@ TEXFILES = moreblocks.tex persons.tex
 .PHONY: clean propper version info moreblocks.tex persons.tex 
 
 clean:
-	-rm -rf *.synctex.gz *.aux *.log *.out *.vrb *.toc *.nav *.snm  
+	-rm -rf *.synctex.gz *.aux *.log *.out *.vrb *.toc *.nav *.snm 
 	-rm -rf $(EXAMPLESPDF) $(EXAMPLESTEX) $(EXAMPLESHTML)
 
 moreblocks.tex: 
 	$(COPY) ../../moreblocks.tex .
 
-
-persons.tex: 
-	$(COPY) ../../persons.tex .
 
 
 # --------------------------------------------------------------------------------------
@@ -65,7 +62,8 @@ persons.tex:
 #
 propper: clean
 	-rm -rf $(TEXFILES)
-	echo "Now we are more than clean!"
+	echo "Now we are more than clean!"	
+
 
 # --------------------------------------------------------------------------------------
 #
@@ -82,8 +80,8 @@ all: $(TEXFILES) $(EXAMPLESPDF) $(EXAMPLESTEX) $(EXAMPLESHTML)
 info: 
 	@echo "########################################################################"
 	@echo ""
-	@echo "Makefile (C) in 2015,16 by Norman Markgraf"
-	@echo "========-------------------------------"
+	@echo "Makefile (C) in 2015-17 by Norman Markgraf"
+	@echo "========----------------------------------"
 	@echo "Version: $(MAKEFILEVERSION)"
 	@echo ""
 	@echo "************************************************************************"

@@ -87,7 +87,8 @@ README.tex:
 clean:
 	-rm -rf moreblocks.hi moreblocks.o
 	-rm -rf README.pdf README.tex
-	-rm -rf *.synctex.gz *.aux *.log *.out 
+	-rm -rf *.synctex.gz *.aux *.log *.out *.vrb *.toc *.nav *.snm 
+	$(MAKE) -C examples clean
 
 
 # --------------------------------------------------------------------------------------
@@ -95,6 +96,7 @@ clean:
 #
 propper: clean
 	-rm -rf README.rst
+	$(MAKE) -C examples propper
 
 
 # --------------------------------------------------------------------------------------
@@ -112,8 +114,8 @@ all: examples
 info: 
 	@echo "########################################################################"
 	@echo ""
-	@echo "Makefile (C) in 2015,16 by Norman Markgraf"
-	@echo "========-------------------------------"
+	@echo "Makefile (C) in 2015-17 by Norman Markgraf"
+	@echo "========----------------------------------"
 	@echo "Version: $(MAKEFILEVERSION)"
 	@echo ""
 	@echo "************************************************************************"

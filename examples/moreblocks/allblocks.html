@@ -1,0 +1,69 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <meta name="author" content="Norman Markgraf" />
+  <title>Pandoc some block examples</title>
+  <style type="text/css">code{white-space: pre;}</style>
+</head>
+<body>
+<div id="header">
+<h1 class="title">Pandoc some block examples</h1>
+<h2 class="author">Norman Markgraf</h2>
+</div>
+<h1 id="pandoc-moreblocks-example">pandoc moreblocks example</h1>
+<h2 id="give-some-more-block-types">Give some more block types</h2>
+<p>Three kind of new BlockTypes:</p>
+<h4 id="one-example" class="example">One Example</h4>
+<p>This is a single example.</p>
+<h4 id="a-couple-of-examples" class="examples">A couple of Examples</h4>
+<ul>
+<li>This is a single example.</li>
+<li>This is anotherone.</li>
+</ul>
+<h4 id="a-definition-block" class="definition">A Definition Block</h4>
+The master Thesis:
+
+<p>to be or not to be!</p>
+<h2 id="next-page">Next page</h2>
+<h4 id="a-theorem" class="theorem">A Theorem</h4>
+<p>Yes! We need some! ;-)</p>
+<h4 id="some-facts" class="facts">Some facts</h4>
+<ul>
+<li>Mmmm</li>
+<li>Maybe some more facts</li>
+</ul>
+<h4 id="a-fact" class="fact">A fact</h4>
+<p>Just a fact to believ!</p>
+<h2 id="another-page">Another page</h2>
+<h4 id="an-exercise" class="exercise">An exercise</h4>
+<p>Do it!</p>
+<h4 id="the-solution" class="solution">The solution</h4>
+<p>I did it!</p>
+<h4 id="lemma" class="lemma">Lemma</h4>
+<p>Not the one of Zorn!</p>
+<h2 id="and-another-one">And another one</h2>
+<h4 id="proof-..." class="proof">Proof ...</h4>
+<p>... it or not!</p>
+<h2 id="the-endblock-tag">The endblock tag:</h2>
+<p>Normal Text</p>
+<h4 id="a-remark" class="remark">A Remark</h4>
+<p>Some remarks</p>
+<h4 id="section" class="endblock"></h4>
+<p>Normal Text</p>
+<h4 id="some-remarks" class="remarks">Some remarks</h4>
+<ul>
+<li>One</li>
+<li>Two</li>
+<li>Three</li>
+</ul>
+<h2 id="the-end">The End!</h2>
+<p>Well, much to do!</p>
+<p>To process this try:</p>
+<pre><code>pandoc --from=markdown --to=json allblocks.md  | \
+./moreblocks.py beamer | \
+pandoc --from=json --to=beamer -s -o allblocks.pdf</code></pre>
+</body>
+</html>

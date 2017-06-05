@@ -1,0 +1,132 @@
+\documentclass[10pt,english,ignorenonframetext,]{beamer}
+\setbeamertemplate{caption}[numbered]
+\setbeamertemplate{caption label separator}{: }
+\setbeamercolor{caption name}{fg=normal text.fg}
+\beamertemplatenavigationsymbolsempty
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+\else % if luatex or xelatex
+  \ifxetex
+    \usepackage{mathspec}
+  \else
+    \usepackage{fontspec}
+  \fi
+  \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
+\fi
+\usetheme[]{Boadilla}
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+% use microtype if available
+\IfFileExists{microtype.sty}{%
+\usepackage{microtype}
+\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[shorthands=off,main=english]{babel}
+\else
+  \usepackage{polyglossia}
+  \setmainlanguage[]{english}
+\fi
+\newif\ifbibliography
+\hypersetup{
+            pdftitle={Pandoc some block examples},
+            pdfauthor={Norman Markgraf},
+            pdfborder={0 0 0},
+            breaklinks=true}
+
+% Prevent slide breaks in the middle of a paragraph:
+\widowpenalties 1 10000
+\raggedbottom
+
+\AtBeginPart{
+  \let\insertpartnumber\relax
+  \let\partname\relax
+  \frame{\partpage}
+}
+\AtBeginSection{
+  \ifbibliography
+  \else
+    \let\insertsectionnumber\relax
+    \let\sectionname\relax
+    \frame{\sectionpage}
+  \fi
+}
+\AtBeginSubsection{
+  \let\insertsubsectionnumber\relax
+  \let\subsectionname\relax
+  \frame{\subsectionpage}
+}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{0}
+\input{persons.tex} \input{moreblocks.tex}
+
+\title{Pandoc some block examples}
+\author{Norman Markgraf}
+\date{}
+
+\begin{document}
+\frame{\titlepage}
+
+\section{pandoc persons example}\label{pandoc-persons-example}
+
+\begin{frame}{Just put in some pictures of great scientist}
+
+\begin{columns}[T,onlytextwidth]
+	\begin{column}[t]{0.74\textwidth}
+
+\begin{theorem}[of Vieta]\label{of-vieta}
+
+If \(x_0\) and \(x_1\) are the roots of \(x^2+px+q=0\), than
+\(p=-(x_0 + x_1)\) and \(q=x_0 \cdot x_1\).
+
+\end{theorem}
+
+\begin{Beweis}[]\label{section-1}
+
+\((x-x_0) \cdot (x-x_1) = x^2 - (x_0+x_1) \cdot x + x_0 \cdot x_1\)
+
+\end{Beweis}
+
+	\end{column}
+	\begin{column}{0.24\textwidth}
+		\personDB{Vieta}
+	\end{column}
+\end{columns}
+
+Wow!
+
+\end{frame}
+
+\begin{frame}[fragile]{The End!}
+
+Well, much to do!
+
+To process this try:
+
+\begin{verbatim}
+pandoc --from=markdown --to=json addpersons.md  | \
+./moreblocks.py beamer | ./addperson.py beamer | \
+pandoc --from=json --to=beamer -s -o addpersons.pdf
+\end{verbatim}
+
+or
+
+\begin{verbatim}
+pandoc --from=markdown --to=beamer \
+--filter=moreblocks.py --filter=addperson.py \ 
+addpersons.md -o addpersons.pdf
+\end{verbatim}
+
+\end{frame}
+
+\end{document}

@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <meta name="author" content="Norman Markgraf" />
+  <title>Pandoc some block examples</title>
+  <style type="text/css">code{white-space: pre;}</style>
+</head>
+<body>
+<div id="header">
+<h1 class="title">Pandoc some block examples</h1>
+<h2 class="author">Norman Markgraf</h2>
+</div>
+<h1 id="pandoc-splitblockold-example">pandoc splitblockold example</h1>
+<h2 id="customizing-layout-two-columns">Customizing layout: two columns</h2>
+<h3 id="left" class="twocolumnsbegin">Left</h3>
+<p><strong>This is an <em>old method</em> to split up the page into two sections.</strong></p>
+<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren.</p>
+<p>Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat.</p>
+<h3 id="right" class="twocolumnsep">Right</h3>
+<p><strong>It is just for older documents!</strong></p>
+<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren.</p>
+<p>Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat.</p>
+<h3 id="end" class="twocolumnsend">End</h3>
+<h2 id="customizing-layout-three-columns">Customizing layout: three columns</h2>
+<h3 id="left-1" class="threecolumnsbegin">Left</h3>
+<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren.</p>
+<p>Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat.</p>
+<h3 id="middle" class="threecolumnsep">Middle</h3>
+<p>Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.</p>
+<h3 id="right-1" class="threecolumnsep">Right</h3>
+<p>Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.</p>
+<h3 id="end-1" class="threecolumnsend">End</h3>
+<h2 id="customizing-layout-two-columns-one-big-left">Customizing layout: two columns, one big left</h2>
+<h3 id="left-big" class="twocolumnsbigleftbegin">Left (big)</h3>
+<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren.</p>
+<p>Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat.</p>
+<p>Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.</p>
+<h3 id="right-small" class="twocolumnsbigleftsep">Right (small)</h3>
+<p>Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.</p>
+<h3 id="end-2" class="twocolumnsbigleftend">End</h3>
+<h2 id="customizing-layout-four-boxes">Customizing layout: four boxes</h2>
+<h3 id="upper-left" class="fourquadone">Upper left</h3>
+<p>ONE is upper left!</p>
+<h3 id="upper-right" class="fourquadtwo">Upper right</h3>
+<p>TWO is upper right!</p>
+<h3 id="lower-left" class="fourquadthree">Lower left</h3>
+<p>THREE is lower left!</p>
+<h3 id="lower-right" class="fourquadfour">Lower right</h3>
+<p>FOUR is lower right!</p>
+<h3 id="end-3" class="fourquadend">End</h3>
+<h2 id="the-end" class="twocolumnsbigleftend">The End!</h2>
+<p>Well, much to do!</p>
+<p>To process this try:</p>
+<pre><code>pandoc --from=markdown --to=json splitblockold.md  | \
+./splitblockold.py beamer | \
+pandoc --from=json --to=beamer -s -o splitblockold.pdf</code></pre>
+</body>
+</html>

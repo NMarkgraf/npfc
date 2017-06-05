@@ -49,12 +49,11 @@ TEXFILES = moreblocks.tex
 .PHONY: clean propper version info moreblocks.tex persons.tex 
 
 clean:
-	-rm -rf *.synctex.gz *.aux *.log *.out 
+	-rm -rf *.synctex.gz *.aux *.log *.out *.vrb *.toc *.nav *.snm 
 	-rm -rf $(EXAMPLESPDF) $(EXAMPLESTEX) $(EXAMPLESHTML)
 
 moreblocks.tex: 
 	$(COPY) ../../moreblocks.tex .
-
 
 persons.tex: 
 	$(COPY) ../../persons.tex .
@@ -65,6 +64,7 @@ persons.tex:
 #
 propper: clean
 	-rm -rf $(TEXFILES)
+	echo "Now we are more than clean!"	
 
 
 # --------------------------------------------------------------------------------------
