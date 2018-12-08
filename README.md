@@ -14,12 +14,12 @@ So NPFC is a completly new version of the old **morblocks**-filter (witch was wr
 
 ## What do you need?
 
-As this is now written in Pyhton, you need **Pyhton3** and **panflute**
+As this is now written in Python, you need **Python3** and **panflute**
 
-You can find **Pyhton** here: (Phyton)[http://pyton.org]
+You can find **Python** here: (Phyton)[http://pyton.org]
 And you can find **panfulte** here: (panflute github)[https://github.com/sergiocorreia/panflute]
 
-I recommend **Pyhton3.5** or newer and the actual **panflute**!
+I recommend **Python3.5** or newer and the actual **panflute**!
 
 
 ## First steps
@@ -39,7 +39,7 @@ pip3 install git+git://github.com/sergiocorreia/panflute.git
 you might start with **NPFC**.
 
 
-### Why Phyton3 and not Python2?
+### Why Python3 and not Python2?
 
 Really? - Did you asked that?
 
